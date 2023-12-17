@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div>
+        <h1>Edit Resources</h1>
+    </div>
+    <form th:action="@{/resources/edit}" method="post" th:object="${resources}">
+        <fieldset>
+
+            <input type="hidden" name="id" th:value="${resources.id}">
+
+            <div class="form-group">
+                <label for="resourceName"> Resource Name</label>
+                <input type="text" class="form-control" id="resourceName" name="resourceName"
+                       th:value="${resources.resourceName}" maxlength=25 required>
+            </div>
+
+            <div>
+                <a th:href="@{/resources/list}" class="btn btn-outline-success">Cancel</a>
+                <button type="submit" class="btn btn-outline-success">Save</button>
+            </div>
+        </fieldset>
+    </form>
+
+
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>
